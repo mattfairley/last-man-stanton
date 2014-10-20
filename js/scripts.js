@@ -190,7 +190,7 @@ quizApp.parseData = function(data){
 
 //check length
 quizApp.checkLength = function(){
-	if (quizApp.length < 10){
+	if (quizApp.credits.length < 10){
 		console.log('There are fewer than 10 movies on this list');
 		//TO DO warning function
 		swal({
