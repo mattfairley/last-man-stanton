@@ -1,0 +1,175 @@
+form.player1 {
+	input[type='submit']{
+		background: $player1;
+		border-bottom: 3px solid darken($player1, 20);
+		&:active{
+			background: darken($player1, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player1;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player1, 20);
+		}
+	}
+}
+
+form.player2 {
+	input[type='submit']{
+		background: $player2;
+		border-bottom: 3px solid darken($player2, 20);
+		&:active{
+			background: darken($player2, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player2;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player2, 20);
+		}
+	}
+}
+
+form.player3 {
+	input[type='submit']{
+		background: $player3;
+		border-bottom: 3px solid darken($player3, 20);
+		&:active{
+			background: darken($player3, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player3;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player3, 20);
+		}
+	}
+}
+
+form.player4 {
+	input[type='submit']{
+		background: $player4;
+		border-bottom: 3px solid darken($player4, 20);
+		&:active{
+			background: darken($player4, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player4;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player4, 20);
+		}
+	}
+}
+
+form.player5 {
+	input[type='submit']{
+		background: $player5;
+		border-bottom: 3px solid darken($player5, 20);
+		&:active{
+			background: darken($player5, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player5;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player5, 20);
+		}
+	}
+}
+
+form.player6 {
+	input[type='submit']{
+		background: $player6;
+		border-bottom: 3px solid darken($player6, 20);
+		&:active{
+			background: darken($player6, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player6;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player6, 20);
+		}
+	}
+}
+
+form.player7 {
+	input[type='submit']{
+		background: $player7;
+		border-bottom: 3px solid darken($player7, 20);
+		&:active{
+			background: darken($player7, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player7;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player7, 20);
+		}
+	}
+}
+form.player8 {
+	input[type='submit']{
+		background: $player8;
+		border-bottom: 3px solid darken($player7, 20);
+		&:active{
+			background: darken($player8, 10);
+		}
+	}
+	input[type='text']{
+		border: 2px solid $player8;
+		transition: 0.3s;
+		&:focus{
+			border: 2px solid darken($player8, 20);
+		}
+	}
+}
+
+
+div.player1 {
+	background: $player1;
+	border-bottom: 3px solid darken($player1, 20);
+}
+
+div.player2 {
+	background: $player2;
+	border-bottom: 3px solid darken($player2, 20);
+}
+
+div.player3 {
+	background: $player3;
+	border-bottom: 3px solid darken($player3, 20);
+}
+
+div.player4 {
+	background: $player4;
+	border-bottom: 3px solid darken($player4, 20);
+}
+
+div.player5 {
+	background: $player5;
+	border-bottom: 3px solid darken($player5, 20);
+}
+
+div.player6 {
+	background: $player6;
+	border-bottom: 3px solid darken($player6, 20);
+}
+
+div.player7 {
+	background: $player7;
+	border-bottom: 3px solid darken($player7, 20);
+}
+
+div.player8 {
+	background: $player8;
+	border-bottom: 3px solid darken($player8, 20);
+}

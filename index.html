@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Last Man Stanton</title>
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400|Josefin+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
+	<!-- meta tags -->
+	<meta name="keywords" content="Last Man Stanton, the Imdb game, Doug Loves Movies, Movies, Movie quiz, Matt Fairley">
+	<meta name="description" content="Last Man Stanton">
+	<meta name="author" content="Matt Fairley">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="Last Man Stanton">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="http://mattfairley.com/lastmanstanton/">
+	<meta property="og:site_name" content="Last Man Stanton">
+	<meta property="og:description" content="A movie trivia game for 2-8 players. Name an actor, then see how many of their movies you can name. Last man standing wins.">
+	<!-- favicon -->
+	<link rel="icon" href="images/favicon.png" type="image/x-icon"/>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>Last Man Stanton</h1>
+		<img src="images/last-man-stanton.png" alt="">
+		<p class="benson">A trivia game for 2-8 players.</p>
+		<p class="rules">
+			Enter the name of an actor or actress with a large body of work. Keep guessing movies until you can't anymore. Last player standing wins.
+		</p>
+		<div id="setup" class="setup">
+			<!-- # of players -->
+			<form id="setup">
+				<fieldset class="submit-field">
+					<input type="text" id="name-input" class="text-input" placeholder="Enter an actor or actress">
+					<input type="submit" class="main button" id="fetch-name" value="Go!">
+					<button class="input button random" id="random-name">Random Name</button>
+				</fieldset>
+				<fieldset id="players-field" class="players-field">
+					<h2>Number of Players</h2>
+					<input type="range" class="players" id="players" min="2" max="8" value="3">
+					<p class="player-number">3 players</p>
+				</fieldset>
+				<fieldset class="lives" id="lives">
+					<h2>Number of Lives</h2>
+					<input type="radio" id="lives1" name="lives" value="1" checked="true">
+					<label for="lives1" class="button">Sudden Death</label>
+					<input type="radio" id = "lives2" name="lives" value="2">
+					<label for="lives2" class="button">You Only Live Twice</label>
+				</fieldset>
+				<!-- <input type="radio" name="lives" value="3"> -->
+			</form>
+		</div>
+		<div class="play" id="play">
+			<h3 id="display-turn"></h3>
+			<form id="guess-movie">
+				<input type="text" id="movie-input" class="text-input" placeholder="Name a movie">
+				<input type="Submit" class="button main" value="Guess">
+				<div class="other-buttons">
+					<button class="button input reset" id="reset">Reset</button>
+					<button class="button input" id="pass-turn">No idea</button>
+				</div>
+			</form>
+		</div>
+		<div id="answers">
+		</div>
+		<div class="fb-share-button" data-href="http://mattfairley.com/lastmanstanton" data-width="100px"></div>
+		<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://mattfairley.com/lastmanstanton/" data-via="mattfairley_" data-count="none">Tweet</a>
+		<footer>
+			<p>Based on the IMDb game from Doug Benson's <a href="http://douglovesmovies.com" target="_blank" title="Doug's site">Doug Loves Movies</a> podcast.</p>
+			<p>Site by <a href="http://mattfairley.com" target="_blank" title="Matt Fairley dot com">Matt Fairley</a> - This product uses the <a href="http://www.themoviedb.org/" target="_blank" title="The MovieDB.org">TMDb</a> API but is not endorsed or certified by TMDb.</p>
+		</footer>
+	</div>
+	<!-- scripts -->
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+			fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+	</script>
+	<script>
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+	</script>
+	<script src="js/sweet-alert.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
