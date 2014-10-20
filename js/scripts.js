@@ -172,7 +172,7 @@ quizApp.parseData = function(data){
 	quizApp.credits = [];
 	$.each(data, function(i,piece){
 		//check data for errors
-		if (piece.character !== '' && piece.character !== 'Himself' && piece.character !== 'Herself' && piece.release_date && piece.title) {
+		if (piece.character !== '' && piece.release_date && piece.title) {
 			quizApp.credits.push({
 				title: piece.title,
 				year: Number(piece.release_date.slice(0,4))
