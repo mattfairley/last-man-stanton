@@ -317,6 +317,8 @@ quizApp.stringManipulate = function(string){
 	string = string.replace(/(\s-\s)/g, ' ');
 	//removeve special characters
 	string = string.replace(/([^a-zA-Z\d\s])/g, '');
+	//fix the movie seven
+	string = string.replace(/(\sse7en\s)/g, 'seven');
 	//convert numbers (1-17) to strings
 	string = string.replace(/(\s1\s)/g, ' one ');
 	string = string.replace(/(\s2\s)/g, ' two ');
