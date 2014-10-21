@@ -308,8 +308,9 @@ quizApp.compareGuess = function(guess){
 
 quizApp.stringManipulate = function(string){
 	//manipulate the string to make guessing easier
-	//remove articles at the beginning of answers/guesses
+	//add spaces to properly trigger on numbers at beginning/end of string
 	string = ' ' + string + ' ';
+	//remove articles at the beginning of answers/guesses
 	string = string.replace(/(?:(the |a |an ))/, '');
 	//change & and + to 'and'
 	string = string.replace(/([&+])/g, 'and');
@@ -360,7 +361,7 @@ quizApp.stringManipulate = function(string){
 	string = string.replace(/([ùúûü])/g,'u');
 	string = string.replace(/([ýÿ])/g,'y');
 	//remove spaces to avoid weird errors
-	// string = string.replace(/(\s)/g, '');
+	string = string.replace(/(\s)/g, '');
 	console.log('|' + string + '|')
     return string;
 };
