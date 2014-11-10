@@ -1,7 +1,7 @@
 input {
 	padding: 10px;
 	border-radius: 5px;
-	outline: 0;
+	// outline: 1px solid rgba($accent, 0.3);
 	float: left;
 }
 form#setup {
@@ -51,7 +51,6 @@ input.text-input {
 	border: 0;
 	border-bottom: 3px solid darken($accent, 20);
 	color: $background;
-	outline: 0;
 	@include font-size(16px);
 	border-radius: 5px;
 	&.is-disabled {

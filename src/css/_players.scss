@@ -1,3 +1,13 @@
+ul#player-names {
+	list-style: none;
+	padding: 0;
+	text-align: center;
+}
+
+fieldset.player {
+	padding: 0;
+}
+
 form.player1 {
 	input[type='submit']{
 		background: $player1;

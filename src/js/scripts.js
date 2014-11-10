@@ -10,6 +10,7 @@ quizApp.playersLeft = 3;
 quizApp.lives = 1;
 quizApp.playerEliminated = false;
 quizApp.keepPlaying = true;
+quizApp.playerNames = [];
 
 quizApp.init = function() {
 	// cache jQuery selectors
@@ -23,6 +24,7 @@ quizApp.init = function() {
 	quizApp.$movieInput = $('#movie-input');
 	quizApp.$guessMovie = $('#guess-movie');
 	quizApp.$numPlayers = $('#players');
+	quizApp.$playerNames = $('#player-names');
 	quizApp.$playerField = $('#setup').find('p.player-number');
 	quizApp.$lives = $('#lives');
 	quizApp.$passTurn = $('#pass-turn');
@@ -50,13 +52,25 @@ quizApp.init = function() {
 		quizApp.pass();
 	});
 	quizApp.$numPlayers.on('input change', function(){
-		quizApp.totalPlayers = $(this).val();
-		quizApp.$playerField.text(quizApp.totalPlayers + ' players');
-		if (quizApp.totalPlayers == 1) {
-			quizApp.$playerField.text(quizApp.totalPlayers + ' player'); 
-		}
-	})
+		quizApp.changePlayerNum($(this).val());
+	});
 
+};
+
+//CHANGE NUMBER OF PLAYERS
+
+quizApp.changePlayerNum = function(players){
+	quizApp.$playerNames.html('');
+	quizApp.totalPlayers = players;
+		quizApp.$playerField.text(players + ' players');
+		if (players == 1) {
+			quizApp.$playerField.text(players + ' player'); 
+		}
+	for(i = 0; i < players; i++){
+		playerNum = Number(i+1);
+		quizApp.$playerNames.append('<fieldset class="player" id="player'+playerNum+'"><li class="player' + playerNum + '"><input type="text" class="text-input player-name" placeholder="Player '+ playerNum + '\'s name"><input type="submit" class="main button player-submit player'+playerNum+'" value="Submit"></fieldset>');
+		quizApp.playerNames[i] = "";	
+	}
 };
 
 quizApp.setVariables = function(){
@@ -67,7 +81,7 @@ quizApp.setVariables = function(){
 	quizApp.players = [];
 	quizApp.activePlayer = 0;
 	quizApp.credits = [];
-}
+};
 
 //API REQUESTS AND UPDATING DOM
 //click the getname button to start the program
@@ -190,8 +204,6 @@ quizApp.parseData = function(data){
 //check length
 quizApp.checkLength = function(){
 	if (quizApp.credits.length < 10){
-		console.log('There are fewer than 10 movies on this list');
-		//TO DO warning function
 		swal({
 			title: 'Just so you know!',
 			text: 'There are only going to be ' + quizApp.length + 'movies to choose from.',
@@ -473,7 +485,6 @@ quizApp.gameOver = function(winner){
 quizApp.alerts = function(){
 //send proper sweetalerts at the end of the turn
 	if (quizApp.currentAnswer == 'correct'){
-		console.log(document.activeElement);
 		swal({
 			title: 'Correct!', 
 			type: 'success',
@@ -535,7 +546,6 @@ quizApp.wrongAnswerAlerts = function(){
 
 quizApp.nextPlayerAlert = function(){
 //alert the next player it is their turn, warning if they have 1 life left
-console.log(document.activeElement);
 	if (quizApp.players[quizApp.activePlayer].lives == 1 && quizApp.lives > 1) {
 		swal({
 			title: 'Last chance, ' + quizApp.players[quizApp.activePlayer].playerAlias + '!',

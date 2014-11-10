@@ -674,7 +674,7 @@
     // Reset the page to its previous state
     window.onkeydown = previousWindowKeyDown;
     document.onclick = previousDocumentClick;
-    if (previousActiveElement) {
+    if (initialActiveElement) {
       initialActiveElement.focus();
     }
     lastFocusedButton = undefined;
