@@ -636,6 +636,7 @@
     removeClass(modal, 'hideSweetAlert');
 
     previousActiveElement = document.activeElement;
+    initialActiveElement = quizApp.activeInput;
     var $okButton = modal.querySelector('button.confirm');
     $okButton.focus();
 
@@ -674,7 +675,7 @@
     window.onkeydown = previousWindowKeyDown;
     document.onclick = previousDocumentClick;
     if (previousActiveElement) {
-      previousActiveElement.focus();
+      initialActiveElement.focus();
     }
     lastFocusedButton = undefined;
   }

@@ -118,8 +118,6 @@ button[disabled], input[disabled] {
 }
 
 input[type=checkbox], input[type=radio] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding: 0;
 }
@@ -281,7 +279,6 @@ form.player1 input[type='submit']:active {
 }
 form.player1 input[type='text'] {
   border: 2px solid #3498db;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player1 input[type='text']:focus {
@@ -297,7 +294,6 @@ form.player2 input[type='submit']:active {
 }
 form.player2 input[type='text'] {
   border: 2px solid #f1c40f;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player2 input[type='text']:focus {
@@ -313,7 +309,6 @@ form.player3 input[type='submit']:active {
 }
 form.player3 input[type='text'] {
   border: 2px solid #27ae60;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player3 input[type='text']:focus {
@@ -329,7 +324,6 @@ form.player4 input[type='submit']:active {
 }
 form.player4 input[type='text'] {
   border: 2px solid #1abc9c;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player4 input[type='text']:focus {
@@ -345,7 +339,6 @@ form.player5 input[type='submit']:active {
 }
 form.player5 input[type='text'] {
   border: 2px solid #9b59b6;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player5 input[type='text']:focus {
@@ -361,7 +354,6 @@ form.player6 input[type='submit']:active {
 }
 form.player6 input[type='text'] {
   border: 2px solid #c0392b;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player6 input[type='text']:focus {
@@ -377,7 +369,6 @@ form.player7 input[type='submit']:active {
 }
 form.player7 input[type='text'] {
   border: 2px solid #d35400;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player7 input[type='text']:focus {
@@ -393,7 +384,6 @@ form.player8 input[type='submit']:active {
 }
 form.player8 input[type='text'] {
   border: 2px solid #2c3e50;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 form.player8 input[type='text']:focus {
@@ -476,7 +466,6 @@ form#setup fieldset h3 {
 
 input.text-input {
   border: 2px solid #95a5a6;
-  -webkit-transition: 0.3s all;
   transition: 0.3s all;
   width: 70%;
   margin-bottom: 16px;
@@ -543,7 +532,6 @@ input[type=range] {
   border: 0;
   border-radius: 5px;
   background: #b1c2c6;
-  -webkit-box-shadow: inset 0 1px 0 0 #34495e, inset 0 -1px 0 0 #ecf0f1;
   box-shadow: inset 0 1px 0 0 #34495e, inset 0 -1px 0 0 #ecf0f1;
 }
 @media (min-width: 415px) {
@@ -661,10 +649,9 @@ fieldset.lives label:first-of-type {
   line-height: normal;
 }
 .sweet-alert button {
-  background-color: #aedef4;
+  background-color: #AEDEF4;
   color: white;
   border: none;
-  -webkit-box-shadow: none;
   box-shadow: none;
   font-size: 17px;
   font-weight: 500;
@@ -675,7 +662,6 @@ fieldset.lives label:first-of-type {
 }
 .sweet-alert button:focus {
   outline: none;
-  -webkit-box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
   box-shadow: 0 0 2px rgba(128, 179, 235, 0.5), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 .sweet-alert button:hover {
@@ -685,7 +671,7 @@ fieldset.lives label:first-of-type {
   background-color: #81ccee;
 }
 .sweet-alert button.cancel {
-  background-color: #d0d0d0;
+  background-color: #D0D0D0;
 }
 .sweet-alert button.cancel:hover {
   background-color: #c8c8c8;
@@ -694,11 +680,9 @@ fieldset.lives label:first-of-type {
   background-color: #b6b6b6;
 }
 .sweet-alert button.cancel:focus {
-  -webkit-box-shadow: rgba(197, 205, 211, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.04706) 0px 0px 0px 1px inset !important;
   box-shadow: rgba(197, 205, 211, 0.8) 0px 0px 2px, rgba(0, 0, 0, 0.04706) 0px 0px 0px 1px inset !important;
 }
 .sweet-alert[data-has-cancel-button=false] button {
-  -webkit-box-shadow: none !important;
   box-shadow: none !important;
 }
 .sweet-alert .icon {
@@ -708,12 +692,10 @@ fieldset.lives label:first-of-type {
   border-radius: 50%;
   margin: 20px auto;
   position: relative;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
 }
 .sweet-alert .icon.error {
-  border-color: #f27474;
+  border-color: #F27474;
 }
 .sweet-alert .icon.error .x-mark {
   position: relative;
@@ -723,25 +705,23 @@ fieldset.lives label:first-of-type {
   position: absolute;
   height: 5px;
   width: 47px;
-  background-color: #f27474;
+  background-color: #F27474;
   display: block;
   top: 37px;
   border-radius: 2px;
 }
 .sweet-alert .icon.error .line.left {
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
   left: 17px;
 }
 .sweet-alert .icon.error .line.right {
   -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   right: 16px;
 }
 .sweet-alert .icon.warning {
-  border-color: #f8bb86;
+  border-color: #F8BB86;
 }
 .sweet-alert .icon.warning .body {
   position: absolute;
@@ -751,7 +731,7 @@ fieldset.lives label:first-of-type {
   top: 10px;
   border-radius: 2px;
   margin-left: -2px;
-  background-color: #f8bb86;
+  background-color: #F8BB86;
 }
 .sweet-alert .icon.warning .dot {
   position: absolute;
@@ -761,10 +741,10 @@ fieldset.lives label:first-of-type {
   margin-left: -3px;
   left: 50%;
   bottom: 10px;
-  background-color: #f8bb86;
+  background-color: #F8BB86;
 }
 .sweet-alert .icon.info {
-  border-color: #c9dae1;
+  border-color: #C9DAE1;
 }
 .sweet-alert .icon.info::before {
   content: "";
@@ -775,7 +755,7 @@ fieldset.lives label:first-of-type {
   bottom: 17px;
   border-radius: 2px;
   margin-left: -2px;
-  background-color: #c9dae1;
+  background-color: #C9DAE1;
 }
 .sweet-alert .icon.info::after {
   content: "";
@@ -785,10 +765,10 @@ fieldset.lives label:first-of-type {
   border-radius: 50%;
   margin-left: -3px;
   top: 19px;
-  background-color: #c9dae1;
+  background-color: #C9DAE1;
 }
 .sweet-alert .icon.success {
-  border-color: #a5dc86;
+  border-color: #A5DC86;
 }
 .sweet-alert .icon.success::before, .sweet-alert .icon.success::after {
   content: '';
@@ -797,8 +777,6 @@ fieldset.lives label:first-of-type {
   width: 60px;
   height: 120px;
   background: white;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .sweet-alert .icon.success::before {
@@ -806,10 +784,8 @@ fieldset.lives label:first-of-type {
   top: -7px;
   left: -33px;
   -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-transform-origin: 60px 60px;
-  -ms-transform-origin: 60px 60px;
   transform-origin: 60px 60px;
 }
 .sweet-alert .icon.success::after {
@@ -817,10 +793,8 @@ fieldset.lives label:first-of-type {
   top: -11px;
   left: 30px;
   -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
   -webkit-transform-origin: 0px 60px;
-  -ms-transform-origin: 0px 60px;
   transform-origin: 0px 60px;
 }
 .sweet-alert .icon.success .placeholder {
@@ -828,8 +802,6 @@ fieldset.lives label:first-of-type {
   height: 80px;
   border: 4px solid rgba(165, 220, 134, 0.2);
   border-radius: 50%;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   position: absolute;
   left: -4px;
@@ -845,12 +817,11 @@ fieldset.lives label:first-of-type {
   top: 8px;
   z-index: 1;
   -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 .sweet-alert .icon.success .line {
   height: 5px;
-  background-color: #a5dc86;
+  background-color: #A5DC86;
   display: block;
   border-radius: 2px;
   position: absolute;
@@ -861,7 +832,6 @@ fieldset.lives label:first-of-type {
   left: 14px;
   top: 46px;
   -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .sweet-alert .icon.success .line.long {
@@ -869,11 +839,9 @@ fieldset.lives label:first-of-type {
   right: 8px;
   top: 38px;
   -webkit-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 .sweet-alert .icon.custom {
-  -webkit-background-size: contain;
   background-size: contain;
   border-radius: 0;
   border: none;
@@ -889,18 +857,32 @@ fieldset.lives label:first-of-type {
     transform: scale(0.7);
     -webkit-transform: scale(0.7);
   }
-
   45% {
     transform: scale(1.05);
     -webkit-transform: scale(1.05);
   }
-
   80% {
-    -webkit-transform: scale(0.95);
     transform: scale(0.95);
     -webkit-tranform: scale(0.95);
   }
-
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
+}
+@-moz-keyframes showSweetAlert {
+  0% {
+    transform: scale(0.7);
+    -webkit-transform: scale(0.7);
+  }
+  45% {
+    transform: scale(1.05);
+    -webkit-transform: scale(1.05);
+  }
+  80% {
+    transform: scale(0.95);
+    -webkit-tranform: scale(0.95);
+  }
   100% {
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -911,18 +893,14 @@ fieldset.lives label:first-of-type {
     transform: scale(0.7);
     -webkit-transform: scale(0.7);
   }
-
   45% {
     transform: scale(1.05);
     -webkit-transform: scale(1.05);
   }
-
   80% {
-    -webkit-transform: scale(0.95);
     transform: scale(0.95);
     -webkit-tranform: scale(0.95);
   }
-
   100% {
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -933,7 +911,16 @@ fieldset.lives label:first-of-type {
     transform: scale(1);
     -webkit-transform: scale(1);
   }
-
+  100% {
+    transform: scale(0.5);
+    -webkit-transform: scale(0.5);
+  }
+}
+@-moz-keyframes hideSweetAlert {
+  0% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+  }
   100% {
     transform: scale(0.5);
     -webkit-transform: scale(0.5);
@@ -944,7 +931,6 @@ fieldset.lives label:first-of-type {
     transform: scale(1);
     -webkit-transform: scale(1);
   }
-
   100% {
     transform: scale(0.5);
     -webkit-transform: scale(0.5);
@@ -952,11 +938,13 @@ fieldset.lives label:first-of-type {
 }
 .showSweetAlert {
   -webkit-animation: showSweetAlert 0.3s;
+  -moz-animation: showSweetAlert 0.3s;
   animation: showSweetAlert 0.3s;
 }
 
 .hideSweetAlert {
   -webkit-animation: hideSweetAlert 0.2s;
+  -moz-animation: hideSweetAlert 0.2s;
   animation: hideSweetAlert 0.2s;
 }
 
@@ -966,25 +954,48 @@ fieldset.lives label:first-of-type {
     left: 1px;
     top: 19px;
   }
-
   54% {
     width: 0;
     left: 1px;
     top: 19px;
   }
-
   70% {
     width: 50px;
     left: -8px;
     top: 37px;
   }
-
   84% {
     width: 17px;
     left: 21px;
     top: 48px;
   }
-
+  100% {
+    width: 25px;
+    left: 14px;
+    top: 45px;
+  }
+}
+@-moz-keyframes animateSuccessTip {
+  0% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  54% {
+    width: 0;
+    left: 1px;
+    top: 19px;
+  }
+  70% {
+    width: 50px;
+    left: -8px;
+    top: 37px;
+  }
+  84% {
+    width: 17px;
+    left: 21px;
+    top: 48px;
+  }
   100% {
     width: 25px;
     left: 14px;
@@ -997,25 +1008,21 @@ fieldset.lives label:first-of-type {
     left: 1px;
     top: 19px;
   }
-
   54% {
     width: 0;
     left: 1px;
     top: 19px;
   }
-
   70% {
     width: 50px;
     left: -8px;
     top: 37px;
   }
-
   84% {
     width: 17px;
     left: 21px;
     top: 48px;
   }
-
   100% {
     width: 25px;
     left: 14px;
@@ -1028,19 +1035,38 @@ fieldset.lives label:first-of-type {
     right: 46px;
     top: 54px;
   }
-
   65% {
     width: 0;
     right: 46px;
     top: 54px;
   }
-
   84% {
     width: 55px;
     right: 0px;
     top: 35px;
   }
-
+  100% {
+    width: 47px;
+    right: 8px;
+    top: 38px;
+  }
+}
+@-moz-keyframes animateSuccessLong {
+  0% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  65% {
+    width: 0;
+    right: 46px;
+    top: 54px;
+  }
+  84% {
+    width: 55px;
+    right: 0px;
+    top: 35px;
+  }
   100% {
     width: 47px;
     right: 8px;
@@ -1053,19 +1079,16 @@ fieldset.lives label:first-of-type {
     right: 46px;
     top: 54px;
   }
-
   65% {
     width: 0;
     right: 46px;
     top: 54px;
   }
-
   84% {
     width: 55px;
     right: 0px;
     top: 35px;
   }
-
   100% {
     width: 47px;
     right: 8px;
@@ -1077,17 +1100,32 @@ fieldset.lives label:first-of-type {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-
   5% {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-
   12% {
     transform: rotate(-405deg);
     -webkit-transform: rotate(-405deg);
   }
-
+  100% {
+    transform: rotate(-405deg);
+    -webkit-transform: rotate(-405deg);
+  }
+}
+@-moz-keyframes rotatePlaceholder {
+  0% {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  5% {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  12% {
+    transform: rotate(-405deg);
+    -webkit-transform: rotate(-405deg);
+  }
   100% {
     transform: rotate(-405deg);
     -webkit-transform: rotate(-405deg);
@@ -1098,17 +1136,14 @@ fieldset.lives label:first-of-type {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-
   5% {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-
   12% {
     transform: rotate(-405deg);
     -webkit-transform: rotate(-405deg);
   }
-
   100% {
     transform: rotate(-405deg);
     -webkit-transform: rotate(-405deg);
@@ -1116,16 +1151,19 @@ fieldset.lives label:first-of-type {
 }
 .animateSuccessTip {
   -webkit-animation: animateSuccessTip 0.75s;
+  -moz-animation: animateSuccessTip 0.75s;
   animation: animateSuccessTip 0.75s;
 }
 
 .animateSuccessLong {
   -webkit-animation: animateSuccessLong 0.75s;
+  -moz-animation: animateSuccessLong 0.75s;
   animation: animateSuccessLong 0.75s;
 }
 
 .icon.success.animate::after {
   -webkit-animation: rotatePlaceholder 4.25s ease-in;
+  -moz-animation: rotatePlaceholder 4.25s ease-in;
   animation: rotatePlaceholder 4.25s ease-in;
 }
 
@@ -1135,7 +1173,18 @@ fieldset.lives label:first-of-type {
     -webkit-transform: rotateX(100deg);
     opacity: 0;
   }
-
+  100% {
+    transform: rotateX(0deg);
+    -webkit-transform: rotateX(0deg);
+    opacity: 1;
+  }
+}
+@-moz-keyframes animateErrorIcon {
+  0% {
+    transform: rotateX(100deg);
+    -webkit-transform: rotateX(100deg);
+    opacity: 0;
+  }
   100% {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
@@ -1148,7 +1197,6 @@ fieldset.lives label:first-of-type {
     -webkit-transform: rotateX(100deg);
     opacity: 0;
   }
-
   100% {
     transform: rotateX(0deg);
     -webkit-transform: rotateX(0deg);
@@ -1157,6 +1205,7 @@ fieldset.lives label:first-of-type {
 }
 .animateErrorIcon {
   -webkit-animation: animateErrorIcon 0.5s;
+  -moz-animation: animateErrorIcon 0.5s;
   animation: animateErrorIcon 0.5s;
 }
 
@@ -1167,20 +1216,42 @@ fieldset.lives label:first-of-type {
     margin-top: 26px;
     opacity: 0;
   }
-
   50% {
     transform: scale(0.4);
     -webkit-transform: scale(0.4);
     margin-top: 26px;
     opacity: 0;
   }
-
   80% {
     transform: scale(1.15);
     -webkit-transform: scale(1.15);
     margin-top: -6px;
   }
-
+  100% {
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+@-moz-keyframes animateXMark {
+  0% {
+    transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    margin-top: 26px;
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.4);
+    -webkit-transform: scale(0.4);
+    margin-top: 26px;
+    opacity: 0;
+  }
+  80% {
+    transform: scale(1.15);
+    -webkit-transform: scale(1.15);
+    margin-top: -6px;
+  }
   100% {
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -1195,20 +1266,17 @@ fieldset.lives label:first-of-type {
     margin-top: 26px;
     opacity: 0;
   }
-
   50% {
     transform: scale(0.4);
     -webkit-transform: scale(0.4);
     margin-top: 26px;
     opacity: 0;
   }
-
   80% {
     transform: scale(1.15);
     -webkit-transform: scale(1.15);
     margin-top: -6px;
   }
-
   100% {
     transform: scale(1);
     -webkit-transform: scale(1);
@@ -1218,6 +1286,7 @@ fieldset.lives label:first-of-type {
 }
 .animateXMark {
   -webkit-animation: animateXMark 0.5s;
+  -moz-animation: animateXMark 0.5s;
   animation: animateXMark 0.5s;
 }
 
@@ -1232,7 +1301,14 @@ fieldset.lives label:first-of-type {
   0% {
     border-color: #F8D486;
   }
-
+  100% {
+    border-color: #F8BB86;
+  }
+}
+@-moz-keyframes pulseWarning {
+  0% {
+    border-color: #F8D486;
+  }
   100% {
     border-color: #F8BB86;
   }
@@ -1241,13 +1317,13 @@ fieldset.lives label:first-of-type {
   0% {
     border-color: #F8D486;
   }
-
   100% {
     border-color: #F8BB86;
   }
 }
 .pulseWarning {
   -webkit-animation: pulseWarning 0.75s infinite alternate;
+  -moz-animation: pulseWarning 0.75s infinite alternate;
   animation: pulseWarning 0.75s infinite alternate;
 }
 
@@ -1255,7 +1331,14 @@ fieldset.lives label:first-of-type {
   0% {
     background-color: #F8D486;
   }
-
+  100% {
+    background-color: #F8BB86;
+  }
+}
+@-moz-keyframes pulseWarningIns {
+  0% {
+    background-color: #F8D486;
+  }
   100% {
     background-color: #F8BB86;
   }
@@ -1264,12 +1347,14 @@ fieldset.lives label:first-of-type {
   0% {
     background-color: #F8D486;
   }
-
   100% {
     background-color: #F8BB86;
   }
 }
 .pulseWarningIns {
   -webkit-animation: pulseWarningIns 0.75s infinite alternate;
+  -moz-animation: pulseWarningIns 0.75s infinite alternate;
   animation: pulseWarningIns 0.75s infinite alternate;
 }
+
+/*# sourceMappingURL=style.css.map */
