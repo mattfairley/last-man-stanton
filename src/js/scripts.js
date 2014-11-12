@@ -374,7 +374,7 @@ quizApp.stringManipulate = function(string){
 	string = string.replace(/([ýÿ])/g,'y');
 	//remove spaces to avoid weird errors
 	string = string.replace(/(\s)/g, '');
-	console.log('|' + string + '|')
+	// console.log('|' + string + '|')
     return string;
 };
 
