@@ -61,17 +61,34 @@ quizApp.init = function() {
 
 quizApp.changePlayerNum = function(players){
 	quizApp.$playerNames.html('');
+	quizApp.playerNames= [];
 	quizApp.totalPlayers = players;
 		quizApp.$playerField.text(players + ' players');
 		if (players == 1) {
 			quizApp.$playerField.text(players + ' player'); 
 		}
-	for(i = 0; i < players; i++){
-		playerNum = Number(i+1);
-		quizApp.$playerNames.append('<fieldset class="player" id="player'+playerNum+'"><li class="player' + playerNum + '"><input type="text" class="text-input player-name" placeholder="Player '+ playerNum + '\'s name"><input type="submit" class="main button player-submit player'+playerNum+'" value="Submit"></fieldset>');
-		quizApp.playerNames[i] = "";	
-	}
+	// for(i = 0; i < players; i++){
+	// 	playerNum = Number(i+1);
+	// 	quizApp.$playerNames.append('<li class="player' + playerNum + '"><input type="text" id="player' + playerNum + '-input" class="text-input player-name" placeholder="Player '+ playerNum + '\'s name"></li>');
+	// 	quizApp.playerNames[i] = "";	
+	// }
 };
+
+//assign playernames on submit to playerNames array
+quizApp.setPlayerNames = function(names){
+	var count = names.length
+	for(i=0; i < count; i++){
+		var playerNum = Number(i+1);
+		var playerFieldID = '#player'+playerNum+'-input'
+		console.log(playerFieldID)
+		//regex for blank usernames
+		//TO DO
+
+		var name = $(playerFieldID).val();
+		names[i] = name;
+	}
+	console.log(names);
+}
 
 quizApp.setVariables = function(){
 	//clear variables from the last game
@@ -81,6 +98,8 @@ quizApp.setVariables = function(){
 	quizApp.players = [];
 	quizApp.activePlayer = 0;
 	quizApp.credits = [];
+	console.log(quizApp.playerNames);
+	// quizApp.setPlayerNames(quizApp.playerNames);
 };
 
 //API REQUESTS AND UPDATING DOM
