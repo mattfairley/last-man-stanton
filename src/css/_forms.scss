@@ -15,7 +15,7 @@ form#setup {
 				width: 100%;
 				clear: both;
 				text-align: center;
-				margin-top: 16px;
+				margin-bottom: 0;
 			}
 		}
 		h3 {
@@ -138,8 +138,8 @@ fieldset.lives {
 		// text-transform: uppercase;
 		display: inline-block;
 		float: left;
-		width: 45%;
-		margin: 2.5%;
+		width: 48%;
+		margin: 2.5% 1%;
 		height: 60px;
 		@include bp(small) {
 			height: auto;

@@ -8,7 +8,17 @@ fieldset.player {
 	padding: 0;
 }
 
-form.player1 {
+ul input.player-name {
+	width: 98%;
+	margin: 8px 1%;
+	@include bp(small) {
+		width: 48%;
+		margin: 1%;
+	}
+}
+
+form.player1,
+li.player1 {
 	input[type='submit']{
 		background: $player1;
 		border-bottom: 3px solid darken($player1, 20);
@@ -25,7 +35,8 @@ form.player1 {
 	}
 }
 
-form.player2 {
+form.player2,
+li.player2 {
 	input[type='submit']{
 		background: $player2;
 		border-bottom: 3px solid darken($player2, 20);
@@ -42,7 +53,8 @@ form.player2 {
 	}
 }
 
-form.player3 {
+form.player3,
+li.player3 {
 	input[type='submit']{
 		background: $player3;
 		border-bottom: 3px solid darken($player3, 20);
@@ -59,7 +71,8 @@ form.player3 {
 	}
 }
 
-form.player4 {
+form.player4,
+li.player4 {
 	input[type='submit']{
 		background: $player4;
 		border-bottom: 3px solid darken($player4, 20);
@@ -76,7 +89,8 @@ form.player4 {
 	}
 }
 
-form.player5 {
+form.player5,
+li.player5 {
 	input[type='submit']{
 		background: $player5;
 		border-bottom: 3px solid darken($player5, 20);
@@ -93,7 +107,8 @@ form.player5 {
 	}
 }
 
-form.player6 {
+form.player6,
+li.player6 {
 	input[type='submit']{
 		background: $player6;
 		border-bottom: 3px solid darken($player6, 20);
@@ -110,7 +125,8 @@ form.player6 {
 	}
 }
 
-form.player7 {
+form.player7,
+li.player7 {
 	input[type='submit']{
 		background: $player7;
 		border-bottom: 3px solid darken($player7, 20);
@@ -126,7 +142,8 @@ form.player7 {
 		}
 	}
 }
-form.player8 {
+form.player8,
+li.player8 {
 	input[type='submit']{
 		background: $player8;
 		border-bottom: 3px solid darken($player7, 20);

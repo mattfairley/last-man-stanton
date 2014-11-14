@@ -29,7 +29,8 @@ h1 {
 h2 {
 	font-family: $display-font;
 	text-transform: uppercase;
-	margin: 0;
+	margin-bottom: 16px;
+	margin-top: 0;
 	@include bp(medium) {
 		margin: 16px;
 	}

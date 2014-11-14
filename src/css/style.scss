@@ -9,9 +9,9 @@ $accent: #3498db;
 $player1: #3498db;
 $player2: #f1c40f;
 $player3: #27ae60;
-$player4: #1abc9c;
+$player4: #c0392b;
 $player5: #9b59b6;
-$player6: #c0392b;
+$player6: #1abc9c;
 $player7: #d35400;
 $player8: #2c3e50;
 
@@ -34,7 +34,7 @@ $player8: #2c3e50;
 @mixin bp($point) {
 // Portrait tablet and small desktops
 	@if $point == small {
-		@media (min-width: 415px) { @content; }
+		@media (min-width: 392px) { @content; }
 	}
 //Landscape phone to portrait tablet
 	@if $point == medium {
