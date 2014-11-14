@@ -33,24 +33,30 @@ quizApp.init = function() {
 	$('button').on('click', function(e){
 		e.preventDefault();
 	});
-	//set listeners
+	//set listener events
+	//this is the 'start game' function
 	quizApp.$setup.on('submit', function(e){
 		e.preventDefault();
 		quizApp.startGame();
 	});
+	//this grabs a random name
 	quizApp.$random.on('click', function(){
 		quizApp.randomStart();
 	});
+	//this resets the board to the 
 	quizApp.$reset.on('click', function(){
 		quizApp.reset();
 	});
+	//guessing a movie
 	quizApp.$guessMovie.on('submit', function(e){
 		e.preventDefault();
 		quizApp.guessMovie();
 	});
+	//passing the turn
 	quizApp.$passTurn.on('click', function(){
 		quizApp.pass();
 	});
+	//changing the number of players
 	quizApp.$numPlayers.on('input change', function(){
 		quizApp.changePlayerNum($(this).val());
 	});
@@ -60,25 +66,28 @@ quizApp.init = function() {
 //CHANGE NUMBER OF PLAYERS
 
 quizApp.changePlayerNum = function(players){
+	//clear the playername div, then re-add the boxes to the dom depending on how many players there are
 	quizApp.$playerNames.html('');
 	quizApp.totalPlayers = players;
-		quizApp.$playerField.text(players + ' players');
-		if (players == 1) {
-			quizApp.$playerField.text(players + ' player'); 
-		}
+	//update number-of-players field
+	quizApp.$playerField.text(players + ' players');
+	if (players == 1) {
+		quizApp.$playerField.text(players + ' player'); 
+	}
+	//loop for creating the inputs
 	for(i = 0; i < players; i++){
 		playerNum = Number(i+1);
+		//check to see if a name has been already selected for a particular player and re-assert that as the field's value
 		quizApp.playerNames[i] = quizApp.playerNames[i] || '';
 		if (quizApp.playerNames[i] !== '') {
 		quizApp.$playerNames.append('<li class="player' + playerNum + '"><input type="text" id="player' + playerNum + '-input" class="text-input player-name" placeholder="Player '+ playerNum + '\'s name" value="'+quizApp.playerNames[i]+'"></li>');
 		} else {
 			quizApp.$playerNames.append('<li class="player' + playerNum + '"><input type="text" id="player' + playerNum + '-input" class="text-input player-name" placeholder="Player '+ playerNum + '\'s name"></li>');
 		}
-
 	}
 };
 
-//assign playernames on submit to playerNames array
+//on game start, assign playernames field values to playerNames array
 quizApp.setPlayerNames = function(names){
 	var count = names.length
 	for(i=0; i < count; i++){
@@ -103,7 +112,7 @@ quizApp.setVariables = function(){
 //API REQUESTS AND UPDATING DOM
 //click the getname button to start the program
 quizApp.startGame = function(){
-	//clear the dom
+	//clear the dom and reset variables
 	quizApp.$answers.empty();
 	quizApp.setVariables();
 	//check if entry is blank
@@ -118,9 +127,10 @@ quizApp.startGame = function(){
 
 //random start
 quizApp.randomStart = function(){
-	//insert get-new-random button
+	//clear the dom
 	quizApp.$answers.empty();
 	quizApp.setVariables();
+	//ajax call for a random name
 	$.ajax({
 		url: 'http://api.themoviedb.org/3/person/popular',
 		type: 'GET',
@@ -145,6 +155,7 @@ quizApp.randomStart = function(){
 			},
 			function(isConfirm){
 				if (isConfirm) {
+					//if they know the name, get the actor's credits
 					quizApp.getCredits(id);	
 				} else {
 					quizApp.randomStart();
@@ -155,7 +166,7 @@ quizApp.randomStart = function(){
 }
 
 quizApp.getName = function(name){
-//feed in the name to get the ID
+//feed in the actor's name to get the ID
 	$.ajax({
 		url: 'http://api.themoviedb.org/3/search/person',
 		type: 'GET',
@@ -169,8 +180,9 @@ quizApp.getName = function(name){
 			//TO DO check to see if result is valid
 			if (result.total_results > 0){
 				var id = result.results[0].id
-				//make name properly capitalized
+				//fetch the name from the API to make capitalization correct
 				quizApp.name = result.results[0].name;
+				//get credits
 				quizApp.getCredits(id);
 			} else {
 				swal('Whoops!', 'That name isn\'t in TMDb. Check your spelling and try again.', 'error');
@@ -196,13 +208,16 @@ quizApp.getCredits = function(id){
 };
 
 quizApp.parseData = function(data){
-//with the data from the AJAX id call, create an array with movie name & year
+//with the data from the AJAX id call, create an array with the movie name & year with a $.each
 	quizApp.credits = [];
 	$.each(data, function(i,piece){
-		//check data for errors
+		//check data for errors and incomplete fields
 		if (piece.character !== '' && piece.release_date && piece.title) {
+			//run credits through regex to get the answer string
+			var answer = quizApp.stringManipulate(piece.title);
 			quizApp.credits.push({
 				title: piece.title,
+				answer: answer,
 				year: Number(piece.release_date.slice(0,4))
 			});
 			quizApp.moviesLeft++;
@@ -210,13 +225,12 @@ quizApp.parseData = function(data){
 	});
 	//check the number of movies. If < 10, give a warning
 	quizApp.checkLength();
-
-	//sort data by year
+	//sort credits by year
 	quizApp.credits = quizApp.credits.sort(quizApp.sortByYear);
 	quizApp.updateDOM();
 };
 
-//check length
+//check the number of credits - if it's below 10, give a warning - may be a similarly-named actor with fewer credits
 quizApp.checkLength = function(){
 	if (quizApp.credits.length < 10){
 		swal({
@@ -234,7 +248,7 @@ quizApp.sortByYear = function(a,b){
   	return ((aYear < bYear) ? -1 : ((aYear > bYear) ? 1 : 0));
 };
 
-//clear setup function
+//clear out the setup form
 quizApp.clearSetup = function(){
 	$('p.benson').slideUp(function(){
 		quizApp.$setup.fadeOut(function(){
@@ -246,6 +260,7 @@ quizApp.clearSetup = function(){
 	quizApp.playersLeft = quizApp.players.length;
 };
 
+//sets the key data for who the players are, how many lives they have, and if they're out of the game or not
 quizApp.setPlayers = function(n){
 	for(var i=0; i < n; i++) {
 		quizApp.players[i] = {
@@ -254,6 +269,7 @@ quizApp.setPlayers = function(n){
 			lives: quizApp.lives,
 			eliminated: false
 		};
+		//if no name supplied, give a generic name
 		if (quizApp.players[i].playerAlias === ''){
 			quizApp.players[i].playerAlias = 'Player '+ Number(i+1);
 		};
@@ -261,7 +277,7 @@ quizApp.setPlayers = function(n){
 };
 
 quizApp.reset = function(){
-//clear playmode function, return set-up function
+//clear game mode, reload set-up form
 	quizApp.$answers.empty();
 	quizApp.$play.fadeOut(function(){
 		quizApp.$movieInput.val('');
@@ -273,7 +289,7 @@ quizApp.reset = function(){
 	});
 };
 
-
+//ADD THE ELEMENTS TO THE DOM
 quizApp.updateDOM = function(){
 	//run clear setup function
 	quizApp.clearSetup();
@@ -302,7 +318,7 @@ quizApp.guessMovie = function(){
 }
 
 quizApp.pass = function(){
-// what happens if you pass on your turn
+// what happens if you pass on your turn - sets your guess to an invalid string and runs the compareguess function
 	quizApp.resetBools();
 	quizApp.movieGuess = 'the movie you couldn\'t think of';
 	quizApp.compareGuess(quizApp.movieGuess);
@@ -310,15 +326,12 @@ quizApp.pass = function(){
 
 
 quizApp.compareGuess = function(guess){
-		//check the answer against all possibles
+	//run the guess through regex
+	quizApp.guess = quizApp.stringManipulate(quizApp.movieGuess);
+	//check the answer against all actual credits
 	$.each(quizApp.credits, function(i,credit){
-		//create temporary variables for guesses/answers
-		var answer = credit.title.toLowerCase();
-		var guess = quizApp.movieGuess.toLowerCase();
-		quizApp.guess = quizApp.stringManipulate(guess);
-		quizApp.answer = quizApp.stringManipulate(answer);
-		if (quizApp.guess !== quizApp.answer){
-			//move on to the next one
+		if (quizApp.guess !== credit.answer){
+			//if the guess doesn't match the result, move on to the next one
 			if (i+1 === quizApp.credits.length) {
 				quizApp.wrongAnswer()
 				return false
@@ -337,8 +350,9 @@ quizApp.compareGuess = function(guess){
 };
 
 quizApp.stringManipulate = function(string){
-	//manipulate the string to make guessing easier
+	//manipulate the guess and the credit string to make guessing easier
 	//add spaces to properly trigger on numbers at beginning/end of string
+	string = string.toLowerCase();
 	string = ' ' + string + ' ';
 	//remove articles at the beginning of answers/guesses
 	string = string.replace(/(?:(the |a |an ))/, '');
@@ -350,6 +364,8 @@ quizApp.stringManipulate = function(string){
 	string = string.replace(/([^a-zA-Z\d\s])/g, '');
 	//fix the movie seven
 	string = string.replace(/(\sse7en\s)/g, 'seven');
+	//fix the movie inglourious basterds
+	string = string.replace(/(\singlourious\s)/g, 'inglorious');
 	//convert numbers (1-17) to strings
 	string = string.replace(/(\s1\s)/g, ' one ');
 	string = string.replace(/(\s2\s)/g, ' two ');
@@ -397,7 +413,7 @@ quizApp.stringManipulate = function(string){
 };
 
 quizApp.rightAnswer = function(i){
-	//right answer
+	//the right answer
 	quizApp.currentAnswer = 'correct'
 	quizApp.$answers.find('div.answer'+i).addClass(quizApp.players[quizApp.activePlayer].playerName).insertAfter(quizApp.$answers.find('.moviesremain')).fadeIn(function(){
 		$(this).removeClass('disabled');	
@@ -448,7 +464,7 @@ quizApp.endTurn = function(){
 };
 
 quizApp.showTurn = function() {
-	//displays whose turn it is
+	//update the DOM to display whose turn it is
 	quizApp.$guessMovie.removeClass().addClass(quizApp.players[quizApp.activePlayer].playerName);
 	if (quizApp.lives === 1){
 		quizApp.$displayTurn.html('It is ' + quizApp.players[quizApp.activePlayer].playerAlias + '\'s turn.');
@@ -462,14 +478,14 @@ quizApp.showTurn = function() {
 };
 
 quizApp.eliminatePlayer = function(){
-	//eliminate a player if necessary
+	//eliminate a player if they go to 0 lives
 	quizApp.players[quizApp.activePlayer].eliminated = true;
 	quizApp.playersLeft--
 	quizApp.playerEliminated = true;
 };
 
 quizApp.switchPlayer = function(){
-	//switch the active player
+	//switch the active player, skipping over eliminated players
 	var currentPlayer = quizApp.activePlayer;
 	quizApp.activePlayer++
 	if (quizApp.activePlayer >= quizApp.players.length) {
@@ -490,7 +506,7 @@ quizApp.declareWinner = function(){
 };
 
 quizApp.gameOver = function(winner){
-	//disable the form, leave the reset button
+	//disable the form, leave the reset button and allow people a chance to view the movies they missed
 	quizApp.$guessMovie.find('input').addClass('is-disabled');
 	quizApp.$passTurn.addClass('is-disabled');
 	quizApp.$displayTurn.text(winner + ' wins!');
@@ -501,7 +517,7 @@ quizApp.gameOver = function(winner){
 };
 
 quizApp.alerts = function(){
-//send proper sweetalerts at the end of the turn
+// determine what sweetalert functions should be shown - they have to be done all at once to chain correctly
 	if (quizApp.currentAnswer == 'correct'){
 		swal({
 			title: 'Correct!', 
