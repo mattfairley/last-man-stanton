@@ -26,10 +26,10 @@ gulp.task('styles', function() {
 gulp.task('scripts', function() {
 	return gulp.src('src/js/**/*.js')
 		.pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
-		.pipe(concat('scripts.js'))
-		// .pipe(gulp.dest('dist/assets/js'))
-		.pipe(rename({suffix: '.min'}))
-		.pipe(uglify())
+		// .pipe(concat('scripts.js'))
+		.pipe(gulp.dest('dist/assets/js'))
+		// .pipe(rename({suffix: '.min'}))
+		// .pipe(uglify())
 		.pipe(gulp.dest('dist/assets/js'))
 		// .pipe(notify({ message: 'Scripts task complete' }));
 });
